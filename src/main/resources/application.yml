@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: happymall
+  datasource:
+    url:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jackson:
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+
