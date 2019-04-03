@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by geely
+ * Created by qm
  */
 @RestController
 @RequestMapping("/cart/")
