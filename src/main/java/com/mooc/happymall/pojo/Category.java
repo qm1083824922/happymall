@@ -14,25 +14,25 @@ import java.util.Date;
 @ApiModel(description = "类别信息",value = "类别信息")
 public class Category {
 
-    @ApiModelProperty(name = "类别Id")
+    @ApiModelProperty(name = "Id",notes = "分类Id")
     private Integer id;
 
-    @ApiModelProperty(name = "父类别Id")
+    @ApiModelProperty(name = "parentId",notes = "父分类Id")
     private Integer parentId;
 
-    @ApiModelProperty(name = "类别名称")
+    @ApiModelProperty(name = "name",notes = "分类名称")
     private String name;
 
-    @ApiModelProperty(name = "类别状态")
+    @ApiModelProperty(name = "status",notes = "分类状态")
     private Boolean status;
 
-    @ApiModelProperty(name = "排序状态")
+    @ApiModelProperty(name = "sortOrder",notes = "排序状态")
     private Integer sortOrder;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "createTime",notes = "更新时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "updateTime",notes = "创建时间")
     private Date updateTime;
 
     @Override

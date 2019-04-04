@@ -14,39 +14,40 @@ import java.util.Date;
 @ApiModel(description = "收货地址",value = "收货地址")
 public class Shipping {
 
+    @ApiModelProperty(name = "id",notes = "收货地址Id")
     private Integer id;
 
-    @ApiModelProperty(name = "用户Id")
+    @ApiModelProperty(name = "userId",notes = "用户Id")
     private Integer userId;
 
-    @ApiModelProperty(name = "收货人姓名")
+    @ApiModelProperty(name = "receiverName",notes = "收货人姓名")
     private String receiverName;
 
-    @ApiModelProperty(name = "收货人固定电话")
+    @ApiModelProperty(name = "receiverName",notes = "收货人固定电话")
     private String receiverPhone;
 
-    @ApiModelProperty(name = "收货人移动电话")
+    @ApiModelProperty(name = "receiverMobile",notes = "收货人移动电话")
     private String receiverMobile;
 
-    @ApiModelProperty(name = "省")
+    @ApiModelProperty(name = "receiverProvince",notes = "省")
     private String receiverProvince;
 
-    @ApiModelProperty(name = "市")
+    @ApiModelProperty(name = "receiverCity",notes = "市")
     private String receiverCity;
 
-    @ApiModelProperty(name = "区")
+    @ApiModelProperty(name = "receiverDistrict",notes = "区")
     private String receiverDistrict;
 
-    @ApiModelProperty(name = "收货地址")
+    @ApiModelProperty(name = "receiverAddress",notes = "收货地址")
     private String receiverAddress;
 
-    @ApiModelProperty(name = "邮编")
+    @ApiModelProperty(name = "receiverZip",notes = "邮编")
     private String receiverZip;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
 
     public String getReceiverName() {

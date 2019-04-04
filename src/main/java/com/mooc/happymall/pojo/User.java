@@ -13,33 +13,35 @@ import java.util.Date;
 @ToString
 @ApiModel(description = "用户信息",value = "用户信息")
 public class User {
+
+    @ApiModelProperty(name = "id",notes = "用户Id")
     private Integer id;
 
-    @ApiModelProperty(name = "用户名")
+    @ApiModelProperty(name = "username",notes = "用户名")
     private String username;
 
-    @ApiModelProperty(name = "用户密码")
+    @ApiModelProperty(name = "password",notes = "密码")
     private String password;
 
-    @ApiModelProperty(name = "用户邮箱")
+    @ApiModelProperty(name = "email",notes = "邮箱")
     private String email;
 
-    @ApiModelProperty(name = "用户手机号")
+    @ApiModelProperty(name = "phone",notes = "手机号")
     private String phone;
 
-    @ApiModelProperty(name = "用户密保")
+    @ApiModelProperty(name = "question",notes = "密保")
     private String question;
 
-    @ApiModelProperty(name = "用户密保答案")
+    @ApiModelProperty(name = "answer",notes = "密保答案")
     private String answer;
 
-    @ApiModelProperty(name = "用户角色")
+    @ApiModelProperty(name = "role",notes = "用户角色")
     private Integer role;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
 
     public String getUsername() {

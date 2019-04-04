@@ -16,22 +16,22 @@ public class Cart {
 
     private Integer id;
 
-    @ApiModelProperty(name = "用户Id")
+    @ApiModelProperty(name = "userId",notes = "用户Id")
     private Integer userId;
 
-    @ApiModelProperty(name = "商品Id")
+    @ApiModelProperty(name = "productId",notes = "商品Id")
     private Integer productId;
 
-    @ApiModelProperty(name = "购物车数量")
+    @ApiModelProperty(name = "quantity",notes = "购物车数量")
     private Integer quantity;
 
-    @ApiModelProperty(name = "是否选择")
+    @ApiModelProperty(name = "checked",notes = "是否选择")
     private Integer checked;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "创建时间")
     private Date updateTime;
 
 }

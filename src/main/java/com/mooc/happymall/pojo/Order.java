@@ -15,45 +15,45 @@ import java.util.Date;
 @ApiModel(description = "订单信息",value = "订单信息")
 public class Order {
 
-    @ApiModelProperty(name = "订单Id")
+    @ApiModelProperty(name = "id",notes = "订单Id")
     private Integer id;
 
-    @ApiModelProperty(name = "订单编号")
+    @ApiModelProperty(name = "orderNo",notes = "订单编号")
     private Long orderNo;
 
-    @ApiModelProperty(name = "用户Id")
+    @ApiModelProperty(name = "userId",notes = "用户Id")
     private Integer userId;
 
-    @ApiModelProperty(name = "")
+    @ApiModelProperty(name = "shippingId",notes = "")
     private Integer shippingId;
 
-    @ApiModelProperty(name = "实际付款金额")
+    @ApiModelProperty(name = "payment",notes = "实际付款金额")
     private BigDecimal payment;
 
-    @ApiModelProperty(name = "支付类型")
+    @ApiModelProperty(name = "paymentType",notes = "支付类型")
     private Integer paymentType;
 
-    @ApiModelProperty(name = "运费")
+    @ApiModelProperty(name = "postage",notes = "运费")
     private Integer postage;
 
-    @ApiModelProperty(name = "订单状态")
+    @ApiModelProperty(name = "status",notes = "订单状态")
     private Integer status;
 
-    @ApiModelProperty(name = "支付时间")
+    @ApiModelProperty(name = "paymentTime",notes = "支付时间")
     private Date paymentTime;
 
-    @ApiModelProperty(name = "发货时间")
+    @ApiModelProperty(name = "sendTime",notes = "发货时间")
     private Date sendTime;
 
-    @ApiModelProperty(name = "交易完成时间")
+    @ApiModelProperty(name = "endTime",notes = "交易完成时间")
     private Date endTime;
 
-    @ApiModelProperty(name = "交易关闭时间")
+    @ApiModelProperty(name = "closeTime",notes = "交易关闭时间")
     private Date closeTime;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
 }

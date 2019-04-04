@@ -18,40 +18,40 @@ import java.util.Date;
 @ApiModel(description = "商品信息",value = "商品信息")
 public class Product {
 
-    @ApiModelProperty(name = "商品Id")
+    @ApiModelProperty(name = "id",notes = "商品Id")
     private Integer id;
 
-    @ApiModelProperty(name = "分类Id")
+    @ApiModelProperty(name = "categoryId",notes = "分类Id")
     private Integer categoryId;
 
-    @ApiModelProperty(name = "商品名称")
+    @ApiModelProperty(name = "name",notes = "商品名称")
     private String name;
 
-    @ApiModelProperty(name = "商品副标题")
+    @ApiModelProperty(name = "subtitle",notes = "商品副标题")
     private String subtitle;
 
-    @ApiModelProperty(name = "商品大图")
+    @ApiModelProperty(name = "mainImage",notes = "商品大图")
     private String mainImage;
 
-    @ApiModelProperty(name = "商品小图")
+    @ApiModelProperty(name = "subImages",notes = "商品小图")
     private String subImages;
 
-    @ApiModelProperty(name = "商品详情")
+    @ApiModelProperty(name = "detail",notes = "商品详情")
     private String detail;
 
-    @ApiModelProperty(name = "商品价格")
+    @ApiModelProperty(name = "price",notes = "商品价格")
     private BigDecimal price;
 
-    @ApiModelProperty(name = "商品库存")
+    @ApiModelProperty(name = "stock",notes = "商品库存")
     private Integer stock;
 
-    @ApiModelProperty(name = "商品状态")
+    @ApiModelProperty(name = "status",notes = "商品状态")
     private Integer status;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
 
     public String getName() {

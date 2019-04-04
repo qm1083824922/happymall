@@ -15,36 +15,36 @@ import java.util.Date;
 @ApiModel(description = "订单",value = "订单")
 public class OrderItem {
 
-    @ApiModelProperty(name = "订单子表id")
+    @ApiModelProperty(name = "id",notes = "订单子表id")
     private Integer id;
 
-    @ApiModelProperty(name = "订单号")
+    @ApiModelProperty(name = "orderNo",notes = "订单号")
     private Long orderNo;
 
-    @ApiModelProperty(name = "商品Id")
+    @ApiModelProperty(name = "productId",notes = "商品Id")
     private Integer productId;
 
-    @ApiModelProperty(name = "商品名称")
+    @ApiModelProperty(name = "productName",notes = "商品名称")
     private String productName;
 
-    @ApiModelProperty(name = "商品图片")
+    @ApiModelProperty(name = "productImage",notes = "商品图片")
     private String productImage;
 
-    @ApiModelProperty(name = "生成订单时的商品单价")
+    @ApiModelProperty(name = "currentUnitPrice",notes = "生成订单时的商品单价")
     private BigDecimal currentUnitPrice;
 
-    @ApiModelProperty(name = "商品数量")
+    @ApiModelProperty(name = "quantity",notes = "商品数量")
     private Integer quantity;
 
-    @ApiModelProperty(name = "商品总价")
+    @ApiModelProperty(name = "totalPrice",notes = "商品总价")
     private BigDecimal totalPrice;
 
-    @ApiModelProperty(name = "创建时间")
+    @ApiModelProperty(name = "createTime",notes = "创建时间")
     private Date createTime;
 
-    @ApiModelProperty(name = "更新时间")
+    @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
 
-    @ApiModelProperty(name = "用户Id")
+    @ApiModelProperty(name = "userId",notes = "用户Id")
     private Integer userId;
 }
