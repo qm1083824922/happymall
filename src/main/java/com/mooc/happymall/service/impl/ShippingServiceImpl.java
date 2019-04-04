@@ -7,6 +7,7 @@ import com.mooc.happymall.common.ServerResponse;
 import com.mooc.happymall.dao.ShippingMapper;
 import com.mooc.happymall.pojo.Shipping;
 import com.mooc.happymall.service.IShippingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.Map;
  * Created by qm
  */
 @Service("iShippingService")
+@Slf4j
 public class ShippingServiceImpl implements IShippingService {
 
 

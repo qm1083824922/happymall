@@ -11,6 +11,7 @@ import com.mooc.happymall.service.IFileService;
 import com.mooc.happymall.service.IProductService;
 import com.mooc.happymall.service.IUserService;
 import com.mooc.happymall.util.PropertiesUtil;
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/manage/product")
+@Api(tags = "2.0", description = "商品管理", value = "商品管理")
 public class ProductManageController {
 
     @Autowired

@@ -4,6 +4,7 @@ import com.mooc.happymall.common.Const;
 import com.mooc.happymall.common.ServerResponse;
 import com.mooc.happymall.pojo.User;
 import com.mooc.happymall.service.IUserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/manage/user")
+@Api(tags = "2.0", description = "用户管理", value = "用户管理")
 public class UserManageController {
 
     @Autowired

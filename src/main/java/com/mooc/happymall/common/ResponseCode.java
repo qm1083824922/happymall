@@ -1,9 +1,12 @@
 package com.mooc.happymall.common;
 
+import lombok.Getter;
+
 /**
  * Created by qm
  * @author Administrator
  */
+@Getter
 public enum ResponseCode {
     /**
      *返回状态码
@@ -20,13 +23,6 @@ public enum ResponseCode {
     ResponseCode(int code, String desc){
         this.code = code;
         this.desc = desc;
-    }
-
-    public int getCode(){
-        return code;
-    }
-    public String getDesc(){
-        return desc;
     }
 
 }

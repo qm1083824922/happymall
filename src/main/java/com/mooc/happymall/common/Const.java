@@ -44,28 +44,7 @@ public class Const {
         int ROLE_ADMIN = 1;
     }
 
-    public enum ProductStatusEnum{
-        /**
-         * 商品状态
-         */
-        ON_SALE(1,"在线");
-        private String value;
-        private int code;
-        ProductStatusEnum(int code, String value){
-            this.code = code;
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public int getCode() {
-            return code;
-        }
-    }
-
-    public interface  AlipayCallback{
+    public interface  AliPayCallback{
         String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
         String TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
 

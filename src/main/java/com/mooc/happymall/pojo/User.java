@@ -1,5 +1,7 @@
 package com.mooc.happymall.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import java.util.Date;
@@ -9,25 +11,35 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@ApiModel(description = "用户信息",value = "用户信息")
 public class User {
     private Integer id;
 
+    @ApiModelProperty(name = "用户名")
     private String username;
 
+    @ApiModelProperty(name = "用户密码")
     private String password;
 
+    @ApiModelProperty(name = "用户邮箱")
     private String email;
 
+    @ApiModelProperty(name = "用户手机号")
     private String phone;
 
+    @ApiModelProperty(name = "用户密保")
     private String question;
 
+    @ApiModelProperty(name = "用户密保答案")
     private String answer;
 
+    @ApiModelProperty(name = "用户角色")
     private Integer role;
 
+    @ApiModelProperty(name = "创建时间")
     private Date createTime;
 
+    @ApiModelProperty(name = "更新时间")
     private Date updateTime;
 
     public String getUsername() {

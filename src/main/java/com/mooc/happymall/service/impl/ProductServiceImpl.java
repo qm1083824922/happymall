@@ -8,6 +8,7 @@ import com.mooc.happymall.common.ResponseCode;
 import com.mooc.happymall.common.ServerResponse;
 import com.mooc.happymall.dao.CategoryMapper;
 import com.mooc.happymall.dao.ProductMapper;
+import com.mooc.happymall.enums.ProductStatusEnum;
 import com.mooc.happymall.pojo.Category;
 import com.mooc.happymall.pojo.Product;
 import com.mooc.happymall.service.ICategoryService;
@@ -16,6 +17,7 @@ import com.mooc.happymall.util.DateTimeUtil;
 import com.mooc.happymall.util.PropertiesUtil;
 import com.mooc.happymall.vo.ProductDetailVO;
 import com.mooc.happymall.vo.ProductListVO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,7 @@ import java.util.List;
  * Created by qm
  */
 @Service("iProductService")
+@Slf4j
 public class ProductServiceImpl implements IProductService {
 
     @Autowired
@@ -179,7 +182,7 @@ public class ProductServiceImpl implements IProductService {
         if(product == null){
             return ServerResponse.createByErrorMessage("产品已下架或者删除");
         }
-        if(product.getStatus() != Const.ProductStatusEnum.ON_SALE.getCode()){
+        if(product.getStatus() != ProductStatusEnum.ON_SALE.getCode()){
             return ServerResponse.createByErrorMessage("产品已下架或者删除");
         }
         ProductDetailVO productDetailVO = assembleProductDetailVO(product);

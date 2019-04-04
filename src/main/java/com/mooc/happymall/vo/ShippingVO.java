@@ -1,5 +1,6 @@
 package com.mooc.happymall.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ApiModel
 public class ShippingVO {
 
     private String receiverName;

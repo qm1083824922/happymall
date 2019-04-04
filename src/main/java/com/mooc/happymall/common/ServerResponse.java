@@ -12,10 +12,16 @@ import java.io.Serializable;
  */
 public class ServerResponse<T> implements Serializable {
     /**
-     *
+     *返回状态
      */
     private int status;
+    /**
+     * 返回提示信息
+     */
     private String msg;
+    /**
+     * 返回数据
+     */
     private T data;
 
     private ServerResponse(int status){

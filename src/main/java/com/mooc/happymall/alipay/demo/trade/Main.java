@@ -79,29 +79,29 @@ public class Main {
         Main main = new Main();
 
         // 系统商商测试交易保障接口api
-        //        main.test_monitor_sys();
+        //main.testMonitorSys();
 
         // POS厂商测试交易保障接口api
-        //        main.test_monitor_pos();
+        //main.testMonitorPos();
 
         // 测试交易保障接口调度
-        //        main.test_monitor_schedule_logic();
+        //main.testMonitorScheduleLogic();
 
         // 测试当面付2.0支付（使用未集成交易保障接口的当面付2.0服务）
-        //        main.test_trade_pay(tradeService);
+        //main.testTradePay(tradeService);
 
         // 测试查询当面付2.0交易
-        //        main.test_trade_query();
+        //main.testTradeQuery();
 
         // 测试当面付2.0退货
-        //        main.test_trade_refund();
+        //main.testTradeRefund();
 
         // 测试当面付2.0生成支付二维码
-        main.test_trade_precreate();
+        main.testTradePrecreate();
     }
 
     // 测试系统商交易保障调度
-    public void test_monitor_schedule_logic() {
+    public void testMonitorScheduleLogic() {
         // 启动交易保障线程
         DemoHbRunner demoRunner = new DemoHbRunner(monitorService);
         demoRunner.setDelay(5); // 设置启动后延迟5秒开始调度，不设置则默认3秒
@@ -110,7 +110,7 @@ public class Main {
 
         // 启动当面付，此处每隔5秒调用一次支付接口，并且当随机数为0时交易保障线程退出
         while (Math.random() != 0) {
-            test_trade_pay(tradeWithHBService);
+            testTradePay(tradeService);
             Utils.sleep(5 * 1000);
         }
 
@@ -119,9 +119,9 @@ public class Main {
     }
 
     // 系统商的调用样例，填写了所有系统商商需要填写的字段
-    public void test_monitor_sys() {
+    public void testMonitorSys() {
         // 系统商使用的交易信息格式，json字符串类型
-        List<SysTradeInfo> sysTradeInfoList = new ArrayList<SysTradeInfo>();
+        List<SysTradeInfo> sysTradeInfoList = new ArrayList<>();
         sysTradeInfoList.add(SysTradeInfo.newInstance("00000001", 5.2, HbStatus.S));
         sysTradeInfoList.add(SysTradeInfo.newInstance("00000002", 4.4, HbStatus.F));
         sysTradeInfoList.add(SysTradeInfo.newInstance("00000003", 11.3, HbStatus.P));
@@ -129,13 +129,13 @@ public class Main {
         sysTradeInfoList.add(SysTradeInfo.newInstance("00000005", 4.1, HbStatus.X));
 
         // 填写异常信息，如果有的话
-        List<ExceptionInfo> exceptionInfoList = new ArrayList<ExceptionInfo>();
+        List<ExceptionInfo> exceptionInfoList = new ArrayList<>();
         exceptionInfoList.add(ExceptionInfo.HE_SCANER);
         //        exceptionInfoList.add(ExceptionInfo.HE_PRINTER);
         //        exceptionInfoList.add(ExceptionInfo.HE_OTHER);
 
         // 填写扩展参数，如果有的话
-        Map<String, Object> extendInfo = new HashMap<String, Object>();
+        Map<String, Object> extendInfo = new HashMap<>();
         //        extendInfo.put("SHOP_ID", "BJ_ZZ_001");
         //        extendInfo.put("TERMINAL_ID", "1234");
 
@@ -156,20 +156,20 @@ public class Main {
     }
 
     // POS厂商的调用样例，填写了所有pos厂商需要填写的字段
-    public void test_monitor_pos() {
+    public void testMonitorPos() {
         // POS厂商使用的交易信息格式，字符串类型
-        List<PosTradeInfo> posTradeInfoList = new ArrayList<PosTradeInfo>();
+        List<PosTradeInfo> posTradeInfoList = new ArrayList<>();
         posTradeInfoList.add(PosTradeInfo.newInstance(HbStatus.S, "1324", 7));
         posTradeInfoList.add(PosTradeInfo.newInstance(HbStatus.X, "1326", 15));
         posTradeInfoList.add(PosTradeInfo.newInstance(HbStatus.S, "1401", 8));
         posTradeInfoList.add(PosTradeInfo.newInstance(HbStatus.F, "1405", 3));
 
         // 填写异常信息，如果有的话
-        List<ExceptionInfo> exceptionInfoList = new ArrayList<ExceptionInfo>();
+        List<ExceptionInfo> exceptionInfoList = new ArrayList<>();
         exceptionInfoList.add(ExceptionInfo.HE_PRINTER);
 
         // 填写扩展参数，如果有的话
-        Map<String, Object> extendInfo = new HashMap<String, Object>();
+        Map<String, Object> extendInfo = new HashMap<>();
         //        extendInfo.put("SHOP_ID", "BJ_ZZ_001");
         //        extendInfo.put("TERMINAL_ID", "1234");
 
@@ -195,7 +195,7 @@ public class Main {
     }
 
     // 测试当面付2.0支付
-    public void test_trade_pay(AlipayTradeService service) {
+    public void testTradePay(AlipayTradeService service) {
         // (必填) 商户网站订单系统中唯一订单号，64个字符以内，只能包含字母、数字、下划线，
         // 需保证商户系统端不能重复，建议通过数据库sequence生成，
         String outTradeNo = "tradepay" + System.currentTimeMillis()
@@ -240,7 +240,7 @@ public class Main {
         String timeoutExpress = "5m";
 
         // 商品明细列表，需填写购买商品详细信息，
-        List<GoodsDetail> goodsDetailList = new ArrayList<GoodsDetail>();
+        List<GoodsDetail> goodsDetailList = new ArrayList<>();
         // 创建一个商品信息，参数含义分别为商品id（使用国标）、名称、单价（单位为分）、数量，如果需要添加商品类别，详见GoodsDetail
         GoodsDetail goods1 = GoodsDetail.newInstance("goods_id001", "xxx面包", 1000, 1);
         // 创建好一个商品后添加至商品明细列表
@@ -283,7 +283,7 @@ public class Main {
     }
 
     // 测试当面付2.0查询订单
-    public void test_trade_query() {
+    public void testTradeQuery() {
         // (必填) 商户订单号，通过此商户订单号查询当面付的交易状态
         String outTradeNo = "tradepay14817938139942440181";
 
@@ -322,7 +322,7 @@ public class Main {
     }
 
     // 测试当面付2.0退款
-    public void test_trade_refund() {
+    public void testTradeRefund() {
         // (必填) 外部订单号，需要退款交易的商户外部订单号
         String outTradeNo = "tradepay14817938139942440181";
 
@@ -365,7 +365,7 @@ public class Main {
     }
 
     // 测试当面付2.0生成支付二维码
-    public void test_trade_precreate() {
+    public void testTradePrecreate() {
         // (必填) 商户网站订单系统中唯一订单号，64个字符以内，只能包含字母、数字、下划线，
         // 需保证商户系统端不能重复，建议通过数据库sequence生成，
         String outTradeNo = "tradeprecreate" + System.currentTimeMillis()
@@ -403,7 +403,7 @@ public class Main {
         String timeoutExpress = "120m";
 
         // 商品明细列表，需填写购买商品详细信息，
-        List<GoodsDetail> goodsDetailList = new ArrayList<GoodsDetail>();
+        List<GoodsDetail> goodsDetailList = new ArrayList<>();
         // 创建一个商品信息，参数含义分别为商品id（使用国标）、名称、单价（单位为分）、数量，如果需要添加商品类别，详见GoodsDetail
         GoodsDetail goods1 = GoodsDetail.newInstance("goods_id001", "xxx小面包", 1000, 1);
         // 创建好一个商品后添加至商品明细列表

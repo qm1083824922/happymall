@@ -1,5 +1,6 @@
 package com.mooc.happymall.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Getter
 @Setter
+@ApiModel
 public class OrderProductVO {
 
     private List<OrderItemVO> orderItemVOList;

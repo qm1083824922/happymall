@@ -1,5 +1,7 @@
 package com.mooc.happymall.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import java.util.Date;
@@ -9,30 +11,42 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@ApiModel(description = "收货地址",value = "收货地址")
 public class Shipping {
 
     private Integer id;
 
+    @ApiModelProperty(name = "用户Id")
     private Integer userId;
 
+    @ApiModelProperty(name = "收货人姓名")
     private String receiverName;
 
+    @ApiModelProperty(name = "收货人固定电话")
     private String receiverPhone;
 
+    @ApiModelProperty(name = "收货人移动电话")
     private String receiverMobile;
 
+    @ApiModelProperty(name = "省")
     private String receiverProvince;
 
+    @ApiModelProperty(name = "市")
     private String receiverCity;
 
+    @ApiModelProperty(name = "区")
     private String receiverDistrict;
 
+    @ApiModelProperty(name = "收货地址")
     private String receiverAddress;
 
+    @ApiModelProperty(name = "邮编")
     private String receiverZip;
 
+    @ApiModelProperty(name = "创建时间")
     private Date createTime;
 
+    @ApiModelProperty(name = "更新时间")
     private Date updateTime;
 
     public String getReceiverName() {

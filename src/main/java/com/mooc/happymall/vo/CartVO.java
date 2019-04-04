@@ -1,5 +1,7 @@
 package com.mooc.happymall.vo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,14 +13,14 @@ import java.util.List;
  */
 @Getter
 @Setter
+@ApiModel
 public class CartVO {
 
     private List<CartProductVO> cartProductVOList;
 
     private BigDecimal cartTotalPrice;
-    /**
-     * 是否已经都勾选
-     */
+
+    @ApiModelProperty(name = "是否已经都勾选")
     private Boolean allChecked;
 
     private String imageHost;

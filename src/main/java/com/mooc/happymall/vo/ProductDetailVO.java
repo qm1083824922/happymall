@@ -1,5 +1,6 @@
 package com.mooc.happymall.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
+@ApiModel
 public class ProductDetailVO {
 
     private Integer id;
