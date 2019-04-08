@@ -9,14 +9,17 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 /**
  * Created by qm
@@ -24,6 +27,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/user/")
 @Api(tags = "2.0", description = "用户相关接口", value = "用户相关接口")
+@Slf4j
 public class UserController {
 
 
@@ -144,7 +148,11 @@ public class UserController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user", value = "user", required = true, dataType = "User"),
     })
-    public ServerResponse<User> updateInformation(HttpSession session, User user) {
+    public ServerResponse<User> updateInformation(HttpSession session, @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            log.error("【创建收货地址】参数不正确, user={}", user);
+            return ServerResponse.createByErrorMessage(bindingResult.getFieldError().getDefaultMessage());
+        }
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorMessage("用户未登录");

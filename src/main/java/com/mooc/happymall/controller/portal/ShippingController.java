@@ -11,11 +11,15 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 /**
  * Created by qm
@@ -24,6 +28,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/shipping/")
 @Api(tags = "2.0", description = "商品相关接口", value = "商品相关接口")
+@Slf4j
 public class ShippingController {
 
     @Autowired
@@ -34,7 +39,11 @@ public class ShippingController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "shipping", value = "shipping",required = true,dataType = "Shipping"),
     })
-    public ServerResponse add(HttpSession session, Shipping shipping) {
+    public ServerResponse add(HttpSession session, @Valid Shipping shipping, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            log.error("【创建收货地址】参数不正确, shipping={}", shipping);
+            return ServerResponse.createByErrorMessage(bindingResult.getFieldError().getDefaultMessage());
+        }
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -60,7 +69,11 @@ public class ShippingController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "shipping", value = "shipping",required = true,dataType = "Shipping"),
     })
-    public ServerResponse update(HttpSession session, Shipping shipping) {
+    public ServerResponse update(HttpSession session, @Valid Shipping shipping,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            log.error("【创建收货地址】参数不正确, shipping={}", shipping);
+            return ServerResponse.createByErrorMessage(bindingResult.getFieldError().getDefaultMessage());
+        }
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
