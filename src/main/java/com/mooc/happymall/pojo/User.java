@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Getter
@@ -18,21 +21,31 @@ public class User {
     private Integer id;
 
     @ApiModelProperty(name = "username",notes = "用户名")
+    @NotBlank(message = "用户名不能为空")
+    @Size(min=3, max=20, message="用户名长度只能在3-20之间")
     private String username;
 
     @ApiModelProperty(name = "password",notes = "密码")
+    @NotBlank(message = "密码不能为空")
+    @Size (min=6, max=18, message="密码长度只能在6-18之间")
     private String password;
 
     @ApiModelProperty(name = "email",notes = "邮箱")
+    @NotBlank(message = "邮箱不能为空")
+    @Pattern(regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message="邮件格式错误")
     private String email;
 
     @ApiModelProperty(name = "phone",notes = "手机号")
+    @NotBlank(message = "手机号不能为空")
+    @Pattern(regexp="^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\\\d{8}$", message="手机号格式错误")
     private String phone;
 
     @ApiModelProperty(name = "question",notes = "密保")
+    @NotBlank(message = "密保不能为空")
     private String question;
 
     @ApiModelProperty(name = "answer",notes = "密保答案")
+    @NotBlank(message = "密保答案不能为空")
     private String answer;
 
     @ApiModelProperty(name = "role",notes = "用户角色")
@@ -43,54 +56,5 @@ public class User {
 
     @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question == null ? null : question.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
 
 }

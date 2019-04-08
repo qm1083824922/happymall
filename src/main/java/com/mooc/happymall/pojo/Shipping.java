@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Getter
@@ -21,27 +22,35 @@ public class Shipping {
     private Integer userId;
 
     @ApiModelProperty(name = "receiverName",notes = "收货人姓名")
+    @NotBlank(message = "收货人姓名不能为空")
     private String receiverName;
 
     @ApiModelProperty(name = "receiverName",notes = "收货人固定电话")
+    @NotBlank(message = "收货人固定电话不能为空")
     private String receiverPhone;
 
     @ApiModelProperty(name = "receiverMobile",notes = "收货人移动电话")
+    @NotBlank(message = "收货人移动电话不能为空")
     private String receiverMobile;
 
     @ApiModelProperty(name = "receiverProvince",notes = "省")
+    @NotBlank(message = "省不能为空")
     private String receiverProvince;
 
     @ApiModelProperty(name = "receiverCity",notes = "市")
+    @NotBlank(message = "市不能为空")
     private String receiverCity;
 
     @ApiModelProperty(name = "receiverDistrict",notes = "区")
+    @NotBlank(message = "区不能为空")
     private String receiverDistrict;
 
     @ApiModelProperty(name = "receiverAddress",notes = "收货地址")
+    @NotBlank(message = "收货地址不能为空")
     private String receiverAddress;
 
     @ApiModelProperty(name = "receiverZip",notes = "邮编")
+    @NotBlank(message = "邮编不能为空")
     private String receiverZip;
 
     @ApiModelProperty(name = "createTime",notes = "创建时间")

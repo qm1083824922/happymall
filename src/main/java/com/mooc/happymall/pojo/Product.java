@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -25,18 +26,23 @@ public class Product {
     private Integer categoryId;
 
     @ApiModelProperty(name = "name",notes = "商品名称")
+    @NotBlank(message = "商品名称不能为空")
     private String name;
 
     @ApiModelProperty(name = "subtitle",notes = "商品副标题")
+    @NotBlank(message = "商品副标题不能为空")
     private String subtitle;
 
     @ApiModelProperty(name = "mainImage",notes = "商品大图")
+    @NotBlank(message = "商品副标题不能为空")
     private String mainImage;
 
     @ApiModelProperty(name = "subImages",notes = "商品小图")
+    @NotBlank(message = "商品小图不能为空")
     private String subImages;
 
     @ApiModelProperty(name = "detail",notes = "商品详情")
+    @NotBlank(message = "商品详情不能为空")
     private String detail;
 
     @ApiModelProperty(name = "price",notes = "商品价格")
@@ -53,45 +59,5 @@ public class Product {
 
     @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle == null ? null : subtitle.trim();
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage == null ? null : mainImage.trim();
-    }
-
-    public String getSubImages() {
-        return subImages;
-    }
-
-    public void setSubImages(String subImages) {
-        this.subImages = subImages == null ? null : subImages.trim();
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
-    }
 
 }

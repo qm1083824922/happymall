@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Getter
@@ -27,9 +28,11 @@ public class PayInfo {
     private Integer payPlatform;
 
     @ApiModelProperty(name = "platformNumber",notes = "platformNumber")
+    @NotBlank(message = "platformNumber不能为空")
     private String platformNumber;
 
     @ApiModelProperty(name = "platformStatus",notes = "支付宝支付状态")
+    @NotBlank(message = "支付宝支付状态不能为空")
     private String platformStatus;
 
     @ApiModelProperty(name = "createTime",notes = "创建时间")
@@ -37,21 +40,5 @@ public class PayInfo {
 
     @ApiModelProperty(name = "updateTime",notes = "更新时间")
     private Date updateTime;
-
-    public String getPlatformNumber() {
-        return platformNumber;
-    }
-
-    public void setPlatformNumber(String platformNumber) {
-        this.platformNumber = platformNumber == null ? null : platformNumber.trim();
-    }
-
-    public String getPlatformStatus() {
-        return platformStatus;
-    }
-
-    public void setPlatformStatus(String platformStatus) {
-        this.platformStatus = platformStatus == null ? null : platformStatus.trim();
-    }
 
 }
