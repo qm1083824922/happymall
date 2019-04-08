@@ -1,16 +1,22 @@
+server:
+  port: 8080
 spring:
   application:
-    name: happymall
+    name: happymall #应用名称
   datasource:
     url: jdbc:mysql://localhost:3306/happymall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&useAffectedRows=true&allowPublicKeyRetrieval=true
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver #连接数据库驱动
     username: root
     password: 123456
-  jackson:
+  jackson: # json时区与时间返回格式指定，剔除null的属性值
     time-zone: GMT+8
     default-property-inclusion: non_null
     joda-date-time-format: yyyy-MM-dd HH:mm:ss
+  jpa:
+    show-sql: true # 是否显示SQL语句
+    hibernate:
+      ddl-auto: validate #验证JavaBean中的类型与数据库是否匹配
 mybatis:
-  mapper-locations: /mapper/**.xml
-  type-aliases-package: com.mooc.happymall.pojo,com.mooc.happymall.vo
-    
+  mapper-locations: /mapper/**.xml #指定maybatis配置文件所在位置
+  type-aliases-package: com.mooc.happymall.pojo,com.mooc.happymall.vo #指定类型别名包
+
