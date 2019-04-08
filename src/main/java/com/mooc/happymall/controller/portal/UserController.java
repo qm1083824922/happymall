@@ -147,7 +147,7 @@ public class UserController {
     @ApiOperation(value = "更新用户信息", notes = "更新用户信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user", value = "user", required = true, dataType = "User"),
-    })
+    }) 
     public ServerResponse<User> updateInformation(HttpSession session, @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             log.error("【创建收货地址】参数不正确, user={}", user);
